@@ -27,8 +27,7 @@ func createTables() {
 		id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 		title TEXT,
 		content TEXT
-);
-	`
+);`
 
 	_, err := DB.Exec(createNotesTable)
 	if err != nil {
