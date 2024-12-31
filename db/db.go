@@ -22,11 +22,15 @@ func InitDB() {
 }
 
 func createTables() {
+	//TODO Falta anadir al notesTable el tags tiene que estar linkeado con el note table
+	//posiblemente con un foreign key y hacer un tagsTable
 	createNotesTable := `
 	CREATE TABLE IF NOT EXISTS notes (
 		id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-		title TEXT,
-		content TEXT
+		title TEXT NOT NULL,
+		content TEXT NOT NULL,
+		archived BOOLEAN NOT NULL
+
 );`
 
 	_, err := DB.Exec(createNotesTable)
