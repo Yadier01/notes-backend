@@ -5,15 +5,16 @@ import (
 )
 
 type Note struct {
-	ID      int    `json:"id" binding:"required"`
-	Title   string `json:"title" binding:"required"`
-	Content string `json:"content" binding:"required"`
+	ID       int    `json:"id" binding:"required"`
+	Title    string `json:"title" binding:"required"`
+	Content  string `json:"content" binding:"required"`
+	Archived bool   `json:"archived" binding:"required"`
 }
 
 var notes []Note = []Note{}
 
 func (n Note) Save() error {
-	query := `INSERT INTO notes (title, content) VALUES (?, ?)`
+	query := `INSERT INTO notes (title, content, archived) VALUES (?, ?, ?)`
 
 	stmt, err := db.DB.Prepare(query)
 	if err != nil {
