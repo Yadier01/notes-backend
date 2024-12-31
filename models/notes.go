@@ -9,6 +9,7 @@ type Note struct {
 	Title    string `json:"title" binding:"required"`
 	Content  string `json:"content" binding:"required"`
 	Archived bool   `json:"archived" binding:"required"`
+	// TODO add tags
 }
 
 var notes []Note = []Note{}
